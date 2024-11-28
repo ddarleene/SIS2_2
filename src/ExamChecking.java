@@ -1,23 +1,23 @@
 public class ExamChecking extends Thread {
     private static int examSheets = 500;
-    private int iterations;
+    private int a;
 
-    public ExamChecking(int iterations) {
-        this.iterations = iterations;
+    public ExamChecking(int a) {
+        this.a = a;
     }
 
     @Override
     public void run() {
         try {
-            for (int i = 0; i < iterations; i++) {
+            for (int i = 0; i < a; i++) {
                 synchronized (ExamChecking.class) {
                     if (examSheets <= 0) {
-                        System.out.println("There is no exam sheet left! All papers were already checked!!!");
+                        System.out.println("No sheets left! All done!");
                         System.exit(0);
                     }
 
                     examSheets -= 50;
-                    System.out.println(Thread.currentThread().getName() + " finished checking, at: "
+                    System.out.println(Thread.currentThread().getName() + "  checked at: "
                             + new java.util.Date() + ", exam sheet count is now " + examSheets);
                 }
                 Thread.sleep(1000);
