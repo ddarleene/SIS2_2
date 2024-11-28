@@ -17,7 +17,7 @@ public class ExamChecking extends Thread {
                     }
 
                     examSheets -= 50;
-                    System.out.println(Thread.currentThread().getName() + "  checked at: "
+                    System.out.println(Thread.currentThread().getName() + "  finishing checking, at: "
                             + new java.util.Date() + ", exam sheet count is now " + examSheets);
                 }
                 Thread.sleep(1000);
